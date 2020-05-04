@@ -5,6 +5,8 @@ import { Castle } from "./castle";
 import { Narration } from "./narration";
 import { StoryLog } from "./story";
 import { Action } from "./action";
+import { TEXT } from "../data/text";
+import { NAR } from "../data/narration";
 
 export interface GameState {
     castle: Castle;
@@ -19,6 +21,7 @@ export interface GameState {
 export function initGameState(): GameState {
 
     const initCastle : Castle = {
+        name: "Ramstein",
         places: [
             {
                 name: "Rivière",
@@ -41,17 +44,13 @@ export function initGameState(): GameState {
         place: 0,
     };
 
-    const initStory : StoryLog = { text: "Ponchour" };
-
-    const initActions : Action[] = [{ text: "hoppla" }, { text: "eh yo" }];
-
     const gameState: GameState = {
         castle: initCastle,
         characters: [],
-        story: [initStory],
-        narrations: [],
+        story: [],
+        narrations: [NAR.Intro],
         player: initPlayer,
-        actions: initActions,
+        actions: NAR.Intro.actions,
         time: {
             year: 1,
             season: 1,

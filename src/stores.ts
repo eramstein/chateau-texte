@@ -19,7 +19,7 @@ function createFullState() {
 
         tempTest: () => update(s => { return s; }),
 
-        //setRegion: (region) => update(s => { s.game.world.regions[region.name] = region; return s; }),
+        playAction: (action, inputs) => update(s => { action.effect(s.game, inputs); return s; }),
     
     };
 }

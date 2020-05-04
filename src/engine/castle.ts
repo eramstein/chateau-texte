@@ -1,6 +1,7 @@
 import { Item } from "./items";
 
 export interface Castle {
+    name: string;
     places: Place[];
 }
 
