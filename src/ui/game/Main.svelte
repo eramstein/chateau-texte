@@ -20,7 +20,7 @@
     }
     .center-panel {
         width: 60%;
-        padding: 20px;
+        padding: 20px 80px;
     }
 </style>
 

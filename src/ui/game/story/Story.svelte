@@ -9,24 +9,35 @@
 </script>
 
 <style>
+    .narrations {
+        margin-bottom: 20px;
+    }
+    .narration, .log {
+        font-size: 18px;
+        line-height: 140%;
+    }
+    .log {
+        color: #999;
+        margin-bottom: 20px;
+    }
 </style>
 
 <div>
-    <div>
+    <div class="logs">
     {#each game.story as log }
-        <div>
+        <div class="log">
         { @html log.text }
         </div>
     {/each}
     </div>
-    <div>
+    <div class="narrations">
     {#each narrations as nar }
-        <div>
+        <div class="narration">
         { @html nar.text }
         </div>
     {/each}
     </div>
-    <div>
+    <div class="actions">
     {#each game.actions as action }
         <Action action={action}></Action>        
     {/each}

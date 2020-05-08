@@ -2,13 +2,21 @@
     import { State } from '../../../stores';
 
     export let game;
-    export let ui;    
+    export let ui;
+
+    $: region = game.regions[game.player.region];
+    
 </script>
 
 <style>
+    .region-name {
+
+    }
 </style>
 
 <div>
-    MONDE
+    <div>
+        { region.name }
+    </div>
 </div>
 

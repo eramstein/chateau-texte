@@ -1,15 +1,15 @@
 import { Character } from "./characters";
 import { Time } from "./time";
 import { Player } from "./player";
-import { Castle } from "./castle";
-import { Narration } from "./narration";
+import { Region } from "./region";
+import { Narration, addNarration } from "./narration";
 import { StoryLog } from "./story";
 import { Action } from "./action";
 import { TEXT } from "../data/text";
 import { NAR } from "../data/narration";
 
 export interface GameState {
-    castle: Castle;
+    regions: Region[];
     characters: Character[];
     time: Time;
     player: Player;
@@ -20,8 +20,8 @@ export interface GameState {
 
 export function initGameState(): GameState {
 
-    const initCastle : Castle = {
-        name: "Ramstein",
+    const initCastle : Region = {
+        name: "",
         places: [
             {
                 name: "Rivière",
@@ -41,16 +41,17 @@ export function initGameState(): GameState {
     };
 
     const initPlayer : Player = {
+        region: 0,
         place: 0,
     };
 
     const gameState: GameState = {
-        castle: initCastle,
+        regions: [initCastle],
         characters: [],
         story: [],
-        narrations: [NAR.Intro],
+        narrations: [],
         player: initPlayer,
-        actions: NAR.Intro.actions,
+        actions: [],
         time: {
             year: 1,
             season: 1,
@@ -60,6 +61,8 @@ export function initGameState(): GameState {
             second: 0,
         },
     };
+
+    addNarration(gameState, NAR.Intro);
 
     return gameState;
 }

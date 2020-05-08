@@ -9,10 +9,18 @@
 </script>
 
 <style>
+    input {
+        margin-top: 10px;
+    }
+    .action-prompt {
+        font-size: 18px;
+        line-height: 140%;
+        color: #0000a0;
+    }    
 </style>
 
 <div>
-    { @html action.text }
+    <div class="action-prompt">{ @html action.text }</div>    
     
     {#if action.inputs && action.inputs.length > 0}
         <form action="#"  on:submit={e => { e.preventDefault(); State.playAction(action, inputs) }}>

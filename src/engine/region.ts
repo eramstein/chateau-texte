@@ -1,6 +1,6 @@
 import { Item } from "./items";
 
-export interface Castle {
+export interface Region {
     name: string;
     places: Place[];
 }
